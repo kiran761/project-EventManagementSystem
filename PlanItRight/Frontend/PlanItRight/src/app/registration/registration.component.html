@@ -1,0 +1,108 @@
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5"> <!-- Reduced width to 5 columns -->
+        <div class="card shadow-sm border-0 rounded-lg"> <!-- Reduced shadow and added border radius -->
+          <div class="card-body p-4"> <!-- Reduced padding -->
+            <h2 class="text-center mb-3 login-title"><strong>PlanItRight.</strong></h2> <!-- Adjusted bottom margin -->
+
+            <form (ngSubmit)="registration()" #loginForm="ngForm" novalidate>
+              <div class="mb-2"> <!-- Reduced bottom margin -->
+                <label for="fullnameInput" class="form-label">Full Name</label>
+                <input
+                  type="text"
+                  id="fullnameInput"
+                  name="fullname"
+                  [(ngModel)]="registrationData.fullname"
+                  #fullname="ngModel"
+                  required
+                  class="form-control form-control-sm" 
+                />
+              </div>
+
+              <div class="mb-2">
+                <label for="phoneInput" class="form-label">Phone</label>
+                <input
+                  type="text"
+                  id="phoneInput"
+                  name="phone"
+                  [(ngModel)]="registrationData.phone"
+                  #phone="ngModel"
+                  required
+                  class="form-control form-control-sm"
+                />
+              </div>
+
+              <div class="mb-2">
+                <label for="emailInput" class="form-label">Email</label>
+                <input
+                  type="email"
+                  id="emailInput"
+                  name="email"
+                  [(ngModel)]="registrationData.email"
+                  #email="ngModel"
+                  required
+                  class="form-control form-control-sm"
+                />
+              </div>
+
+              <!-- Row for Username and Password -->
+              <div class="row">
+                <div class="col-md-6 mb-2">
+                  <label for="usernameInput" class="form-label">Username</label>
+                  <input
+                    type="text"
+                    id="usernameInput"
+                    name="username"
+                    [(ngModel)]="registrationData.username"
+                    #username="ngModel"
+                    required
+                    class="form-control form-control-sm"
+                  />
+                  <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+                    Username is required
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                  <label for="passwordInput" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    id="passwordInput"
+                    name="password"
+                    [(ngModel)]="registrationData.password"
+                    #password="ngModel"
+                    required
+                    class="form-control form-control-sm"
+                  />
+                  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                    Password is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-grid">
+                <button
+                  type="submit"
+                  [disabled]="!loginForm.valid"
+                  class="btn btn-primary btn-block login-btn"
+                >
+                  Register
+                </button>
+              </div>
+
+              <div *ngIf="registrationError" class="text-danger text-center mt-3 error-text">
+                {{ registrationError }}
+              </div>
+
+              <!-- Already a member section -->
+              <div class="text-center mt-2">
+                <p>Already a member? <a href="/login" class="text-primary">Sign in</a></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

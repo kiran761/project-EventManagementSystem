@@ -1,0 +1,38 @@
+<nav><app-event-nav></app-event-nav></nav>
+
+<body>
+    <div class="details-pane">
+        <div class="event-data">
+            <h2><strong>{{ eventName }}</strong></h2>
+            <br>
+            <h4>{{ eventDate }}</h4>
+            <br>
+            <h4>{{ eventLocation }}</h4>
+            <br>
+            <h4>{{ eventDescription }}</h4>
+        </div>
+        <div class="total-rem-budget">
+            <h4><strong>TOTAL BUDGET</strong></h4>
+            <h2>Rs. {{ totalBudget }}</h2>
+            <br>
+            <h4><strong>REMAINING BUDGET</strong></h4>
+            <h2>Rs. {{ remainingBudget }}</h2>
+        </div>
+    </div>
+    <div class="vendor-and-guest">
+        <div class="budget-vendor-pane">
+            <h3><strong>BUDGET & VENDORS</strong></h3>
+            <app-budget-vendors-sub [eventId]="eventId"></app-budget-vendors-sub>
+        </div>
+
+        <div class="guest-list-pane">
+            <h3><strong>GUEST LIST</strong></h3>
+            <app-guestlist-sub [eventId]="eventId"></app-guestlist-sub>
+        </div>
+    </div>
+    <div class="schedule-pane">
+        <h3><strong>SCHEDULE</strong></h3>
+        <app-schedule-sub [eventId]="eventId"></app-schedule-sub>
+    </div>
+
+</body>

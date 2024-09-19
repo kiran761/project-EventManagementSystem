@@ -1,0 +1,40 @@
+<body>
+    <a href="/guestlist">
+        <div class="guest-list-pane">
+
+            <div class="accept-list">
+                <h4 style="padding-bottom: 10px;"><strong>Accepted</strong></h4>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Guest Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let guest of getAcceptedGuests()">
+                            <td>{{ guest.name }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="reject-list" >
+                <h4 style="padding-bottom: 10px;"><strong>Rejected</strong></h4>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Guest Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let guest of getRejectedGuests()">
+                            <td>{{ guest.name }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </a>
+</body>

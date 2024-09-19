@@ -1,0 +1,51 @@
+<body>
+  <header id="navbar">
+    <nav class="navbar-container container">
+      <a href="/" class="home-link">PlanItRight.</a>
+      <button type="button" class="navbar-toggle" aria-label="Toggle menu" aria-expanded="false"
+        aria-controls="navbar-menu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div id="navbar-menu" class="detached">
+        <ul class="navbar-links">
+          <li class="navbar-item">
+            <a class="navbar-link" (click)="logout()" >Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="main">
+    <h2 class="title-event" style="padding: 30px">Your Events</h2>
+    <div class="search-addevent">
+      <div class="search">
+        <input type="text" class="searchTerm" placeholder="Search..." (input)="onSearch($event)" />
+        <button type="submit" class="searchButton" title="Search">
+        </button>
+      </div>
+      <a href="javascript:void(0)" (click)="openPopup()"><img src="/assets/icons8-create-90.png" class="add-event"
+          alt="" title="Add Event"></a>
+    </div>
+    <div class="container">
+
+      <div class="event-card" *ngFor="let event of filteredEvents">
+        <div class="event-name">{{ event.name }}</div>
+        <div class="event-date">
+          <img src="{{ calender_icon }}" alt="img" style="height: 25px; padding-right: 15px" />
+          {{ event.date }}
+        </div>
+        <div class="event-location">
+          <img src="{{ location_icon }}" alt="img" style="height: 25px; padding-right: 15px" />
+          {{ event.location }}
+        </div>
+        <a class="button" (click)="openDashboard(event)">Open</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Event Popup Component -->
+  <app-event-popup *ngIf="isPopupOpen" (closePopup)="closePopup()" (eventCreated)="onEventCreated()"></app-event-popup>
+</body>

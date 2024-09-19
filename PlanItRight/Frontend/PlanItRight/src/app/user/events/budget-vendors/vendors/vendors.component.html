@@ -1,0 +1,40 @@
+<div class="popup">
+  <div class="popup-content">
+    <button class="close-btn" (click)="onClose()" style="font-size: 30px;color: white;" title="Close"><b>X</b></button>
+    <h2>Add New Payment</h2>
+
+    <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+      <div class="form-group">
+        <label for="vendorName">Vendor Name</label>
+        <select id="vendorName" name="vendorName" [(ngModel)]="selectedVendor" required>
+          <option *ngFor="let vendor of vendors" [value]="vendor.name">{{ vendor.name }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="dueDate">Due Date</label>
+        <input type="date" id="dueDate" name="dueDate" [(ngModel)]="paymentsData.dueDate" required>
+      </div>
+
+      <div class="form-group">
+        <label for="vendorPayment">Amount</label>
+        <input type="text" id="vendorPayment" name="vendorPayment" [(ngModel)]="paymentsData.amount" required>
+      </div>
+
+      <div class="form-group">
+        <label for="vendorStatus">Status</label>
+        <select id="vendorStatus" name="vendorStatus" [(ngModel)]="paymentsData.status" required>
+          <option value="done">Done</option>
+          <option value="in progress">In Progress</option>
+          <option value="pending">Pending</option>
+        </select>
+      </div>
+      
+
+      <div class="form-actions">
+        <button type="submit" class="btn">Add Payment</button>
+        <button type="button" class="btn cancel" (click)="onClose()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

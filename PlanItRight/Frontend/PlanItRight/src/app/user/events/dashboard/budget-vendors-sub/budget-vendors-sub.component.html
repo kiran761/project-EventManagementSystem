@@ -1,0 +1,33 @@
+<body>
+    <a href="/budget">
+    <div class="rank-vendor-list-pane">
+        <div class="rank-vendor">
+            <!-- <h4><strong>Highest <br>Amount Spend: </strong></h4> -->
+            <h5>{{ highestVendor?.name }}</h5>
+            <h4>Rs. {{ highestVendor?.spend }}</h4>
+            <br>
+            <!-- <h4><strong>Second Highest <br>Amount Spend: </strong></h4> -->
+            <h5>{{ secondHighestVendor?.name }}</h5>
+            <h4>Rs. {{ secondHighestVendor?.spend }}</h4>
+          </div>
+          
+          <div class="vendor-list">
+            <table>
+              <thead>
+                <tr>
+                  <th>Vendor Name</th>
+                  <th>Amount Spent</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let vendor of getVisibleVendors()">
+                  <td>{{ vendor.name }}</td>
+                  <td>Rs. {{ vendor.spend }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+    </div>
+    </a>
+</body>

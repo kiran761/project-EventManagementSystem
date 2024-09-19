@@ -1,0 +1,45 @@
+<div *ngIf="budgetData" class="budget-detail-container">
+    <div class="budget-with-chart">
+        <div class="budget-info">
+            <h2>{{ budgetData.name }}</h2>
+            <p>Total Budget: {{ budgetData.total_budget | currency: 'USD' }}</p>
+            <p>Total Expenses: {{ totalExpenses| currency: 'USD' }}</p>
+            <p [ngClass]="{'budget-over': remainingBudget < 0}">
+                Remaining Budget: {{ remainingBudget | currency: 'USD' }}
+            </p>
+        </div>
+        <div class="chart-wrapper">
+            <canvas #budgetChart></canvas>
+            <div class="pagination-controls">
+                <i class="fas fa-chevron-left" (click)="prevPage()" [class.disabled]="currentPage === 0"></i>
+                <i class="fas fa-chevron-right" (click)="nextPage()"
+                    [class.disabled]="currentPage >= Math.ceil(budgetData.vendors.length / vendorsPerPage) - 1"></i>
+            </div>
+        </div>
+    </div>
+    <div class="search-addvendor">
+        <div class="search">
+            <input type="text" class="searchTerm" placeholder="Search..." (input)="onSearch($event)" />
+            <button type="submit" class="searchButton" title="Search">
+            </button>
+          </div>
+          <a href="javascript:void(0)" (click)="openPopup()"><img src="/assets/icons8-add-64.png" class="add-payment" alt="" title="Add Payment"></a>
+          <a href="javascript:void(0)" (click)="openVendorPopup()">
+            <img src="/assets/add.png" class="add-vendor" alt="" title="Add Vendor">
+          </a>
+    </div>
+
+    <div class="expenses">
+        <div class="expense-item" *ngFor="let vendor of filteredVendors">
+            <div class="expense-info">
+                <h4 class="vendor-name">{{ vendor.name }}</h4>
+                <p class="amount">Amount: {{ vendor.amount | currency: 'USD' }}</p>
+                <p class="due-date">Due Date: {{ vendor.dueDate | date:'mediumDate' }}</p>
+                <p class="status" [ngClass]="getStatusClass(vendor.status)">{{ vendor.status }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-vendors *ngIf="isPopupOpen" (closePopup)="closePopup()"></app-vendors>
+<app-add-vendor></app-add-vendor>

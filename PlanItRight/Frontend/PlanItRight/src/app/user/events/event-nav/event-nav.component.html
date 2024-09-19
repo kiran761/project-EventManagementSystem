@@ -1,0 +1,22 @@
+<header id="navbar">
+    <nav class="navbar-container container">
+        <a href="/events" class="home-link">
+            PlanItRight.
+          </a>
+      <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu" [attr.aria-expanded]="isNavbarExpanded ? 'true' : 'false'" (click)="toggleNavbarVisibility()">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div id="navbar-menu" [ngClass]="{'expanded': isNavbarExpanded}" aria-labelledby="navbar-toggle"
+        (click)="toggleNavbarVisibility()">
+        <ul class="navbar-links">
+          <li class="navbar-item"><a class="navbar-link" href="/guestlist">Guests</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="/budget">Vendors</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="/schedule">Schedule</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="/home" (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  

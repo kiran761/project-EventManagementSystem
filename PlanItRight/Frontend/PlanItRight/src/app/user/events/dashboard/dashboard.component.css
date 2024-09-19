@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", system-ui;
+    font-optical-sizing: auto;
+    font-style: normal;    
+    background-color: #c8dff5;
+    color: #2d3748;
+    line-height: 1.6;
+    margin-top: 60px;
+    padding: 30px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.details-pane {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.event-data, .total-rem-budget {
+    padding: 2rem;
+    flex: 1;
+}
+
+.event-data {
+    background-color: #4a90e2;
+    color: #ffffff;
+}
+
+.total-rem-budget {
+    background-color: #ffffff;
+    border-left: 1px solid #e2e8f0;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #4a5568;
+}
+
+h4 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.vendor-and-guest {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.budget-vendor-pane, .guest-list-pane, .schedule-pane {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    flex: 1;
+}
+
+.schedule-pane {
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .details-pane, .vendor-and-guest {
+        flex-direction: column;
+    }
+}

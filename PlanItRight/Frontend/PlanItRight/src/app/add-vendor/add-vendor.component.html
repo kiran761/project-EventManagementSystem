@@ -1,0 +1,81 @@
+<div class="popup" *ngIf="isPopupOpen">
+    <div class="popup-content">
+      <!-- Close Button -->
+      <button class="close-btn" (click)="closePopup()">&times;</button>
+      <h2>Add Vendor</h2>
+      <form (submit)="onSubmit()">
+        <!-- Vendor Name -->
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            [(ngModel)]="vendor.name"
+            name="name"
+            required
+          />
+        </div>
+  
+        <!-- Vendor Service Type -->
+        <div class="form-group">
+          <label for="serviceType">Service Type</label>
+          <input
+            id="serviceType"
+            type="text"
+            [(ngModel)]="vendor.serviceType"
+            name="serviceType"
+            required
+          />
+        </div>
+  
+        <!-- Vendor Contact Info -->
+        <div class="form-group">
+          <label for="contactInfo">Contact Info</label>
+          <input
+            id="contactInfo"
+            type="text"
+            [(ngModel)]="vendor.contactInfo"
+            name="contactInfo"
+            required
+          />
+        </div>
+  
+        <!-- Vendor Status -->
+        <div class="form-group" >
+          <label for="status">Status</label>
+          <select class="dragdown"
+            id="status"
+            [(ngModel)]="vendor.status"
+            name="status"
+            required
+          >
+            <option value="pending">Active</option>
+            <option value="in progress">InActive</option>
+           
+          </select>
+        </div>
+  
+        <!-- Vendor User Email -->
+        
+  
+        <!-- Vendor Location -->
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input
+            id="location"
+            type="text"
+            [(ngModel)]="vendor.location"
+            name="location"
+            required
+          />
+        </div>
+  
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button type="submit" class="btn"  >Add Vendor</button>
+          <button type="button" class="btn cancel" (click)="closePopup()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

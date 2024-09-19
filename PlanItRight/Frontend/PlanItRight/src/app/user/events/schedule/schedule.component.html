@@ -1,0 +1,54 @@
+<nav><app-event-nav></app-event-nav></nav>
+<body>
+    <div class="main-content">
+        <div class="schedule">
+            <div class="container">
+                <h1>Task List</h1>
+                <div class="calendar">
+                    <app-calendar [tasks]="displayedTasks"></app-calendar>
+                  </div>
+                <div class="search-addtask">
+                    <div class="search">
+                        <input type="text" class="searchTerm" placeholder="Search..." (input)="onSearch($event)" />
+                        <button type="submit" class="searchButton" title="Search">
+                        </button>
+                      </div>
+                      <a href="javascript:void(0)" (click)="openPopup()"><img src="/assets/icons8-add-task-96.png" class="add-task" alt="" title="Add Vendor"></a>
+                </div>
+                <div class="task-list-container">
+                  <table class="task-list">
+                    <thead>
+                      <tr>
+                        <th>Task</th>
+                        <th>Due Date</th>
+                        <th>Due Time</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let task of displayedTasks">
+                        <td>{{ task.name }}</td>
+                        <td>{{ task.dueDate }}</td>
+                        <td>{{ task.dueTime }}</td>
+                        <td>{{ task.status }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="pagination">
+                  <button (click)="prevPage()" [disabled]="currentPage === 1" class="page-btn">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <span id="pageInfo">Page {{ currentPage }} of {{ totalPages }}</span>
+                  <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="page-btn">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+        </div>
+       
+    </div>
+
+    <app-add-task *ngIf="isPopupOpen" (taskAdded)="onTaskAdded()" (closePopup)="closePopup()"></app-add-task>
+
+</body>

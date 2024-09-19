@@ -1,0 +1,22 @@
+<div class="popup">
+  <div class="popup-content">
+    <button class="close-btn" (click)="onClose()" style="font-size: 30px;color: white;" title="close"><b>X</b></button>
+    <h2>Add New Guest</h2>
+    <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+      <div class="form-group">
+        <label for="guestName">Name</label>
+        <input type="text" id="guestName" name="guestName" [(ngModel)]="guestName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="guestEmail">Email</label>
+        <input type="email" id="guestEmail" name="guestEmail" [(ngModel)]="guestEmail" required>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn" title="Send mail">Add</button>
+        <button type="button" class="btn cancel" (click)="onClose()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

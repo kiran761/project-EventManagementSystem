@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: jwtSecurity
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/planitright
+    username: postgres
+    password: postgres
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: event-service
+            uri: http://localhost:7001
+            predicates:
+              - Path=/api/events/** ,/api/guests/** ,/api/tasks/**
+          #            filters:
+          #              - StripPrefix=1
+
+          - id: notification-service
+            uri: http://localhost:7003
+            predicates:
+              - Path=/api/notifications/**
+          #            filters:
+          #              - StripPrefix=1
+
+          - id: vendor-service
+            uri: http://localhost:7002
+            predicates:
+              - Path=/api/vendors/** , /api/budgets/** , /api/payments/**
+#            filters:
+#              - StripPrefix=1
+
+server:
+  port: 7000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

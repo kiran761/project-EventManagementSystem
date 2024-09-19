@@ -1,0 +1,50 @@
+<body>
+  
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="login-title"><strong>PlanItRight.</strong></h2>
+   
+    <form (ngSubmit)="login()" #loginForm="ngForm" novalidate>
+      <div class="form-group">
+        <label for="usernameInput" class="form-label">Email</label>
+        <input
+          type="email"
+          id="emailInput"
+          name="email"
+          [(ngModel)]="loginData.email"
+          #username="ngModel"
+          required
+          class="form-input"
+        />
+      </div>
+     
+      <div class="form-group">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input
+          type="password"
+          id="passwordInput"
+          name="password"
+          [(ngModel)]="loginData.password"
+          #password="ngModel"
+          required
+          class="form-input"
+        />
+      </div>
+     
+      <div class="form-group">
+        <button type="submit" [disabled]="!loginForm.valid" class="login-btn">
+          Login
+        </button>
+      </div>
+     
+      <div *ngIf="loginError" class="error-text">
+        {{ loginError }}
+      </div>
+
+      <div class="text-center mt-2">
+        <p>Not a member?  <a href="/signup" class="text-primary">Register</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+</body>

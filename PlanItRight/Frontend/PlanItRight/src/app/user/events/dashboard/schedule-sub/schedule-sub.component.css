@@ -1,0 +1,73 @@
+*{
+    padding:0%;
+    margin: 0%;
+}
+
+body{
+    padding: 30px 0px;
+    font-family: "Montserrat", system-ui;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background: none;
+}
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.schedule-table{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 25px 50px;
+    width: 100%;
+    background-color: rgba(24, 24, 24, 0.689);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-table:hover {
+    background-color: rgb(64, 63, 63);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+  }
+  
+  th {
+    background-color: #c485ff96;
+    color: #333;
+  }
+  
+  /* Default background color for all rows */
+  tbody tr {
+    background-color: rgba(24, 24, 24, 0.689);
+    color: white; /* Ensure text is visible against the dark background */
+  }
+  
+  /* Show status-specific colors only when hovering */
+  tbody tr.status-pending:hover {
+    background-color: #f9b6b6; /* Light red for pending */
+    color: black;
+  }
+  
+  tbody tr.status-in-progress:hover {
+    background-color: #fde68c; /* Light yellow for in-progress */
+    color: black;
+
+  }
+  
+  tbody tr.status-done:hover {
+    background-color: #9afc9a; /* Light green for done */
+    color: black;
+
+  }

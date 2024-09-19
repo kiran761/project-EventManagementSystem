@@ -1,0 +1,60 @@
+<nav><app-event-nav></app-event-nav></nav>
+
+<body>
+  <div class="main-content">
+    <div class="wrap" style="justify-content: center">
+      <div class="search">
+        <input type="text" class="searchTerm" placeholder="Search..." [(ngModel)]="searchTerm" (input)="filterGuests()" />
+        <button type="submit" class="searchButton" title="Search">
+          <!-- <i class="fa fa-search"></i> -->
+        </button>
+      </div>
+      <a href="javascript:void(0)" (click)="openPopup()"><img src="/assets/icons8-add-user-96.png" class="add-guest" alt="" title="Add Guest"></a>
+      <!-- <a href=""><img src="/assets/icons8-send-100.png" alt="" class="send-icon" title="Send RSVPs"></a> -->
+    </div>
+
+    <div class="guest-list-pane">
+      <div class="accept-list">
+        <h4><strong>Accepted</strong></h4>
+        <table> 
+          <tbody>
+            <tr *ngFor="let guest of filteredAcceptedGuests">
+              <td>{{ guest.name }}</td>
+              <td>{{ guest.email }}</td>
+              <!-- <td>{{ guest.status }}</td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="reject-list">
+        <h4><strong>Rejected</strong></h4>
+        <table>
+          <tbody>
+            <tr *ngFor="let guest of filteredRejectedGuests">
+              <td>{{ guest.name }}</td>
+              <td>{{ guest.email }}</td>
+              <!-- <td>{{ guest.status }}</td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="no-reply-list">
+        <h4><strong>Not Yet Replied</strong></h4>
+        <table>
+          <tbody>
+            <tr *ngFor="let guest of filteredNoReplyGuests">
+              <td>{{ guest.name }}</td>
+              <td>{{ guest.email }}</td>
+              <!-- <td>{{ guest.status }}</td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <app-add-guest *ngIf="isPopupOpen" (closePopup)="closePopup()"></app-add-guest>
+
+</body>

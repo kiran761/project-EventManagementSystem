@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", system-ui;
+    font-optical-sizing: auto;
+    font-style: normal;
+    padding-top: 20px;
+    background: none;
+    /* background-color: rgb(240, 245, 255); */
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.rank-vendor-list-pane {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 25px;
+    background-color: rgba(24, 24, 24, 0.689);
+    color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rank-vendor-list-pane:hover {
+    background-color: rgb(64, 63, 63);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.vendor-list {
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+}
+
+thead {
+    background-color: #c485ff96;
+    color: #333;
+}
+
+/* Default background color for all rows */
+tbody tr {
+    background-color: rgba(24, 24, 24, 0.689);
+    color: white; /* Ensure text is visible against the dark background */
+}
+
+/* Show specific colors only when hovering */
+tbody tr:nth-child(even):hover {
+    background-color: #9bcdff62;
+}
+
+tbody tr:nth-child(odd):hover {
+    background-color: rgba(230, 240, 255, 0.7); /* Light blue when hovering */
+}

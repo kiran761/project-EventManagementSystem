@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", system-ui;
+    font-optical-sizing: auto;
+    font-style: normal;
+    padding-top: 20px;
+    background: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.guest-list-pane {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background-color: rgba(24, 24, 24, 0.689);
+    color: #ddd;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.guest-list-pane:hover {
+    background-color: rgb(64, 63, 63);
+    font-family: "Montserrat", system-ui;
+    font-optical-sizing: auto;
+    font-style: normal;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.accept-list,
+.reject-list {
+    width: 45%;
+    /* Adjust as needed */
+    /* max-height: 150px; Adjust this height to show only 5 rows */
+    overflow-y: hidden;
+    justify-content: center;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    justify-content: center;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #5b5b5b;
+
+}
+
+th{
+    background-color: #c485ff96;
+    color: #2a2a2a;
+}
+
+/* .accept-list thead,
+.reject-list thead {
+    
+} */
+
+.accept-list td,tr{
+    background-color: rgba(24, 24, 24, 0.689);
+}
+
+
+.accept-list tr:nth-child(even) :hover{
+    background-color: #28942d62;
+}
+
+.accept-list tr:nth-child(odd) :hover{
+    background-color: #9bffc662;
+}
+
+.reject-list tr:nth-child(even) :hover{
+    background-color: #cb474762;
+}
+
+.reject-list tr:nth-child(odd) :hover{
+    background-color: #ff9b9b62;
+}
